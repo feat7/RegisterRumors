@@ -5,9 +5,9 @@ namespace app\config;
 class Config
 {
 	
-	const DB_NAME = 'database name';
-	const DB_USER = 'database username';
-	const DB_PASS = 'database password';
+	const DB_NAME = 'education';
+	const DB_USER = 'education';
+	const DB_PASS = '123456';
 	const DB_HOST = 'localhost';
 
 }

@@ -1,73 +1,243 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeNicely - We power startups</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bulma.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/hero.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <script type="text/javascript" src="assets/js/jquery.js">
+  </script>
+  <style type="text/css">
+    .avatar img {
+    border-radius: 200px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+  </style>
+</head>
+<body>
+  <section class="hero is-primary is-large header-image">
+    <div class="hero-head">
+      <header class="nav">
+        <div class="container">
+          <div class="nav-left">
+            <a class="nav-item" href="../index.html">
+              <div class="title">CodeNicely</div>
+            </a>
+          </div>
+          <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="nav-right nav-menu">
+            {% if userdata != 'guest' %}
+            <span class="nav-item">Welcome {{userdata.name}}</span>
+            {% else %}
+            <span class="nav-item">
+                <a href="/login" class="button">Sign in</a>
+            </span>
+            <span class="nav-item">
+                <a href="/register" class="button">Sign Up</a>
+            </span>
+            {% endif %}
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-2">
+          CodeNicely
+        </h1>
+        <h2 class="subtitle is-5">
+          We power startups.
+        </h2>
+        <p>
+          <a class="button is-outlined" href="#projects" id="gotoprojects">
+            <span>
+              Projects
+            </span>
+          </a>
+          <a class="button is-outlined" href="#team">
+            <span>
+              Team
+            </span>
+          </a>
+          <a class="button is-outlined">
+            <span>
+              About Us
+            </span>
+          </a>
+          <a class="button is-outlined">
+            <span>
+              Contact Us
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="hero-cta">
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <p class="title">Take a tour! <a href="#projects" class="button is-primary" id="gototour">Go</a></p>
+      </div>
+    </nav>
+  </div>
+  <div class="section main" id="projects">
+    <div class="container" id="projectsc">
+        <div class="title">
+            Our Projects
+        </div>
+        <hr/>
+      <div class="columns has-text-centered">
+        <div class="column is-4">
+          <div class="card">
+              <div class="card-image image is-square">
+                  <img src="http://placehold.it/300x225">
+                  <span style="position: absolute;left: 0; bottom: 0; padding: 5px;">CodeNicely MusicBox</span>
+              </div>
+              <div class="card-content">
+                  MusicBox service provided by team CodeNicely.
+              </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+              <div class="card-image image is-square">
+                  <img src="http://placehold.it/300x225">
+                  <span style="position: absolute;left: 0; bottom: 0; padding: 5px;">ProjectAPI</span>
+              </div>
+              <div class="card-content">
+                  ProjectAPI is url shortner service provided by team CodeNicely.
+              </div>
+          </div>
 
-        <title>Surface</title>
+        </div>
+        <div class="column is-4">
+          <div class="card">
+              <div class="card-image image is-square">
+                  <img src="http://placehold.it/300x225">
+                  <span style="position: absolute;left: 0; bottom: 0; padding: 5px;">CodeNicely</span>
+              </div>
+              <div class="card-content">
+                  This website itself is a product by team CodeNicely.
+              </div>
+          </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            .full-height {
-                height: 100vh;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-            .content {
-                text-align: center;
-            }
-            .title {
-                font-size: 84px;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-           
-            <div class="content">
-                <div class="title m-b-md">
-                    Surface
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="hero-cta" id="team">
+      <div class="hero-body">
+          <div class="container">
+                <div class="title">
+                    <div class="container">Our Team</div>
                 </div>
-
-                <div class="links">
-                    <a href="/user_guide/introduction.pdf">User Guide - Introduction.</a>
-                </div>
+                <hr/>
+              <div class="columns">
+                  <div class="column">
+                      <div class="columns">
+                          <div class="column is-one-third">
+                              <div class="image avatar">
+                                  <img src="http://placehold.it/128x128">
+                              </div>
+                          </div>
+                          <div class="column">
+                              <div class="title">
+                                  Meghal Agarwal
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="columns">
+                          <div class="column is-one-third">
+                              <div class="image avatar">
+                                  <img src="http://placehold.it/128x128">
+                              </div>
+                          </div>
+                          <div class="column">
+                              <div class="title">
+                                  Aditya Agarwal
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="columns">
+                          <div class="column is-one-third">
+                              <div class="image avatar">
+                                  <img src="http://placehold.it/128x128">
+                              </div>
+                          </div>
+                          <div class="column">
+                              <div class="title">
+                                  Iket Agarwal
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+        <div class="columns">
+            <div class="column is-one-third is-left"><div class="title"><strong>#CodeNicely</strong></div>
+            <div class="subtitle">We power startups.</div>
+            </div>
+            <div class="column">
+                <i class="fa fa-facebook-official"></i>
+                <i class="fa fa-twitter"></i>
             </div>
         </div>
-    </body>
+        </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>CodeNicely</strong> by <a href="http://vinaykhobragade.net">Vinay Khobragade</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+        </p>
+        <p>
+          <a class="icon" href="https://github.com/feat7">
+            <i class="fa fa-github"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <script type="text/javascript">
+       $('#gototour, #gotoprojects').click(function() {
+
+       $('#projectsc').removeClass('animated flip');
+        
+        setTimeout(
+            function() 
+            {
+                $('#projectsc').addClass('animated flip');
+                //do something special
+                }, 000);
+        
+       });
+
+      
+  </script>
+</body>
 </html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - CodeNicely</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bulma.css">
+  <link rel="stylesheet" href="/assets/css/hero.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+
+  <style type="text/css">
+    .avatar img {
+    border-radius: 200px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+  </style>
+</head>
+<body>
+  <div class="columns">
+    <aside class="column is-2 aside hero is-fullheight is-hidden-mobile">
+      <div>
+        <div class="main">
+          <div class="title">Main</div>
+          <a href="#" class="item active"><span class="icon"><i class="fa fa-home"></i></span><span class="name">Dashboard</span></a>
+          <a href="#" class="item"><span class="icon"><i class="fa fa-map-marker"></i></span><span class="name">Activity</span></a>
+          <a href="#" class="item"><span class="icon"><i class="fa fa-th-list"></i></span><span class="name">Timeline</span></a>
+          <a href="#" class="item"><span class="icon"><i class="fa fa-folder-o"></i></span><span class="name">Folders</span></a>
+          <hr/>
+          <div id="notification"></div>
+        </div>
+      </div>
+
+    </aside>
+    <div class="column is-10 admin-panel">
+      <nav class="nav has-shadow" id="top">
+        <div class="container">
+          <div class="nav-left">
+            <a class="nav-item" href="/dashboard">
+              <div class="title is-2">CodeNicely</div>
+            </a>
+          </div>
+          <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="nav-right nav-menu is-hidden-tablet">
+            <a href="#" class="nav-item is-active">
+              Dashboard
+            </a>
+            <a href="#" class="nav-item">
+              Activity
+            </a>
+            <a href="#" class="nav-item">
+              Timeline
+            </a>
+            <a href="#" class="nav-item">
+              Folders
+            </a>
+          </div>
+        </div>
+      </nav>
+      <section class="hero is-small">
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Admin Dashboard
+            </h1>
+            <h2 class="subtitle">
+              Hello {{userdata.name}}!
+            </h2>
+          </div>
+        </div>
+
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <p class="heading">Developers</p>
+              <p class="title">3,456</p>
+            </div>
+            <div class="level-item has-text-centered">
+              <p class="heading">Clients</p>
+              <p class="title">123</p>
+            </div>
+            <div class="level-item has-text-centered">
+              <p class="heading">Active Users</p>
+              <p class="title">456K</p>
+            </div>
+            <div class="level-item has-text-centered">
+              <p class="heading">Total Users</p>
+              <p class="title">789K</p>
+            </div>
+          </nav>
+        </div>
+        <hr/>
+        <a class="button is-primary" id="addProjectButton"><i class="fa fa-plus"></i> Add Project</a>
+      
+      
+      
+      <div class="section main">
+      <div class="container">
+      <div id="listProjects" class="columns"></div>
+      </div>
+      </div>
+      <div class="hero-body">
+        <div class="container">
+          <div class="title">Our Team</div>
+        </div>
+      </div>
+      </section>
+      <!--Modals-->
+      <div class="modal" id="addProjectModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Add New Project</p>
+            <button class="delete" id="closeAddProjectModal"></button>
+          </header>
+          <form method="post" action="./" class="" id="addProjectForm">
+          <section class="modal-card-body">
+          <!-- Content ... -->
+          
+            <label class="label" for="project_name">Project Name</label>
+            <input class="input" type="text" name="project_name" id="project_name">
+            <label class="label" for="description">Description</label>
+            <input class="input" type="text" name="description" id="description">
+            <label class="label" for="image">Image</label>
+            <input class="input" type="text" name="image" id="image">   
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-primary" type="submit" id="submitAddProject">Add Project</button>
+            <a class="button">Cancel</a>
+          </footer>
+          </form>
+        </div>
+      </div>
+
+<script type="text/javascript">
+  $('#addProjectButton').click(function() {
+    $('#addProjectModal').addClass('is-active');
+  });
+  $('#closeAddProjectModal').click(function() {
+    $('#addProjectModal').removeClass('is-active');
+  });
+  $('#submitAddProject').click(function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: '/dashboard-api/add-project',
+      type: 'POST',
+      data: {
+        project_name: $('#project_name').val(),
+        description: $('#description').val(),
+        image: $('#image').val()
+      },
+      dataType: 'json',
+      success: function(data) {
+        $('#addProjectModal').removeClass('is-active');
+        if(data.success=='true') {
+          $('#notification').html('Added!');
+        }
+        
+      }
+
+    });
+  });
+
+  $.ajax({
+    url: '/dashboard-api/project-list/limit?limit=3',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      if(data.auth=='true') {
+        
+        $('#notification').html('Loaded projects');
+
+        $.each(data.data, function(index, value) {
+          $('#listProjects').append('<div class="column is-4"><div class="panel"><div class="panel-block section"><div class="has-text-centered"><p>'+value.name+'</p><br/><p>'+value.description+'</p></div></div></div></div>');
+        });
+        
+      }
+    }
+
+  });
+
+
+</script>
+</body>
+</html>

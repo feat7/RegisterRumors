@@ -8,7 +8,14 @@ class Routes
 	public function setRoutes()
 	{
 		$this->routes = [
-			'/' => ['uses' => 'Welcome@welcomeToSurface'],
+			'/' => ['uses' => 'HomePageController@index'],
+			'register' => ['uses' => 'Auth@register'],
+			'login' => ['uses' => 'Auth@login'],
+			'logout' => ['uses' => 'Auth@logout'],
+			'dashboard' => ['uses' => 'Dashboard@home', 'params' => ['page' => $this->getUriSegment(1)] ],
+			'ajax' => ['uses' => 'Ajax@request', 'params' => ['element' => $this->getUriSegment(1)]],
+			'dashboard-api' => ['uses' => 'DashboardAPI@requestAPI', 'params' => ['api' => $this->getUriSegment(1)] ],
+			'debug' => ['uses' => 'Ajax@debug'],
 
 		];
 
