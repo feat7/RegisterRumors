@@ -60,6 +60,7 @@
                 </div>
                 <div class="panel-body">
                     {{rumor.message}}<br/>
+                    Address: {{rumor.address}}<br/>
                     Pin Code: {{rumor.zipcode}}<br/>
                     Count Yes: {{rumor.count_yes}}<br/>
                     Count No: {{rumor.count_no}}

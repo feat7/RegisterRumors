@@ -89,16 +89,20 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
             // line 62
             echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "message", array()), "html", null, true);
             echo "<br/>
-                    Pin Code: ";
+                    Address: ";
             // line 63
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "address", array()), "html", null, true);
+            echo "<br/>
+                    Pin Code: ";
+            // line 64
             echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "zipcode", array()), "html", null, true);
             echo "<br/>
                     Count Yes: ";
-            // line 64
+            // line 65
             echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "count_yes", array()), "html", null, true);
             echo "<br/>
                     Count No: ";
-            // line 65
+            // line 66
             echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "count_no", array()), "html", null, true);
             echo "
                 </div>
@@ -113,7 +117,7 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rumor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 74
+        // line 75
         echo "\t</section>
 
 \t<section id=\"register-rumor\">
@@ -223,7 +227,7 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
 
     public function getDebugInfo()
     {
-        return array (  117 => 74,  102 => 65,  98 => 64,  94 => 63,  90 => 62,  83 => 58,  75 => 52,  71 => 51,  19 => 1,);
+        return array (  121 => 75,  106 => 66,  102 => 65,  98 => 64,  94 => 63,  90 => 62,  83 => 58,  75 => 52,  71 => 51,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */

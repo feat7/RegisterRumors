@@ -22,6 +22,7 @@ class HomePageController extends Controller
 		foreach ($data['rumors'] as $key => $val) {
 			$data['rumors'][$key]['count_yes'] = $countModel->getCountYesById($val['id']);
 			$data['rumors'][$key]['count_no'] = $countModel->getCountNoById($val['id']);
+			$data['rumors'][$key]['address'] = $this->addressDetails($val['zipcode'])['state'];
 		}
 		return view('homepage/index.tpl', $data);
 	}
@@ -39,7 +40,7 @@ class HomePageController extends Controller
 
 			$data['zipcode'] = $zipcode;
 
-			$data['state'] = $file['results'][0]['formatted_address'];
+			$data['state'] = (isset($file['results'][0]['formatted_address'])) ? $file['results'][0]['formatted_address'] : 'Address Not available!';
 
 			return $data;
 		}

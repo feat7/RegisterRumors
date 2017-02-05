@@ -21,9 +21,7 @@ class __TwigTemplate_c19ad05e2c2d1438e8be6fb423527eb542ae93bc9666f13a5ed600bc6d2
     <head><title>Success!</title></head>
     <body bgcolor=\"black\">
     <div id=\"form\">
-    \t<form action=\"home.html\" method=\"POST\">
-    \t\t<button type=\"submit\" style=\"width: 60px; height= 40px; color:#305070;\">Home</button>
-    \t</form>
+    \t<a href=\"/\" style=\"font-size: 20px; color: #fff;\">Home</a>
 
     </div>
     <p style=\"margin-left:20%; margin-top:20%;color:white; font-size:80px; text-align:centre;\">Your query successfully sent!</p>
