@@ -46,6 +46,33 @@
 		</div>
 	</header>
 
+	<section id="result-holder">
+	<h2>Recently registered Rumors</h2><hr/>
+		{% for rumor in rumors %}
+			<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{rumor.subject}}</h3>
+                
+                </div>
+                <div class="panel-body">
+                    {{rumor.message}}<br/>
+                    Pin Code: {{rumor.zipcode}}<br/>
+                    Count Yes: {{rumor.count_yes}}<br/>
+                    Count No: {{rumor.count_no}}
+                </div>
+
+                
+            </div>
+        </div>
+	</div>
+</div>
+		{% endfor %}
+	</section>
+
 	<section id="register-rumor">
 	<hr/>
 		<div class="container">

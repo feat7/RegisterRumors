@@ -23,30 +23,44 @@ class CountModel extends Model
 
 	public function getCountYesById($id)
 	{
-		$sql = "select count(*) from rumors where submission=2 AND id=:id";
 
-		if($result = $this->pdoQuery($sql)) {
-			$result->bindParam(':id', $id);
+		// $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-			if($result->execute()) {
-				return $result->fetch();
-			}
-		}
-		return false;
+$id=(int)$id;
+$sql = "SELECT COUNT(*) FROM `count` WHERE `submission`=2 AND rumor_id=$id";
+$result = $this->db->query($sql); 
+return $result->fetchColumn();
+
+		// return $number_of_rows;
+		// $sql = "select count(*) from rumors WHERE rumor_id=:id";
+
+		// if($result = $this->pdoQuery($sql)) {
+		// 	$result->bindParam(':id', $id);
+
+		// 	if($result->execute()) {
+		// 		return (!$result->fetchColumn()) ? $result->fetchColumn() : 0;
+		// 	}
+		// }
+		// return false;
 	}
 
 	public function getCountNoById($id)
 	{
-		$sql = "select count(*) from rumors where submission=1 AND id=:id";
 
-		if($result = $this->pdoQuery($sql)) {
-			$result->bindParam(':id', $id);
+		$id=(int)$id;
+$sql = "SELECT COUNT(*) FROM `count` WHERE `submission`=1 AND rumor_id=$id";
+$result = $this->db->query($sql); 
+return $result->fetchColumn();
+		// $sql = "select count(*) from rumors where submission=1 AND id=:id";
 
-			if($result->execute()) {
-				return $result->fetch();
-			}
-		}
-		return false;
+		// if($result = $this->pdoQuery($sql)) {
+		// 	$result->bindParam(':id', $id);
+
+		// 	if($result->execute()) {
+		// 		return $result->rowCount();
+		// 	}
+		// }
+		// return false;
 	}
 
 

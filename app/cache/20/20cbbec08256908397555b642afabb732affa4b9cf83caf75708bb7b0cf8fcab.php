@@ -28,7 +28,7 @@ class __TwigTemplate_a5fef5ce9d19d0888864e98f2b73217e5c9678a54559afe3808afcc0dfe
  
 </head>
 <body>
-  <section class=\"hero is-fullheight is-dark is-bold\">
+  <section class=\"hero is-fullheight is-bold\" style=\"background-color: #305070;\">
 
     <div class=\"hero-body\">
       <div class=\"container\">

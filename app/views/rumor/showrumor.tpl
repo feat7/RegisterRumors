@@ -21,15 +21,12 @@
                 <div class="panel-body">
                     {{data.message}}<br/>
                     Address: {{rumordata.state}}<br/>
-                    Pin Code: {{rumordata.zipcode}}
+                    Pin Code: {{rumordata.zipcode}}<br/>
+                    Count Yes: {{count_yes}}<br/>
+                    Count No: {{count_no}}<br/>
                 </div>
 
-                {% if data.zipcode==userdata.zipcode %}
-                	<div class="panel-bottom">
-                		<a href="/rumor-add-yes-count" class="btn btn-success">Correct</button>
-                		<a href="/rumor-add-no-count" class="btn btn-danger">Incorrect</button>
-                	</div>
-                {% endif %}
+                
             </div>
         </div>
 	</div>

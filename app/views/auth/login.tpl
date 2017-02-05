@@ -10,7 +10,7 @@
  
 </head>
 <body>
-  <section class="hero is-fullheight is-dark is-bold">
+  <section class="hero is-fullheight is-bold" style="background-color: #305070;">
 
     <div class="hero-body">
       <div class="container">

@@ -21,6 +21,19 @@ class RumorsModel extends Model
 		return false;
 	}
 
+	public function getRumors()
+	{
+		$sql = "select * from rumors order by id DESC LIMIT 3";
+
+		if($result = $this->pdoQuery($sql)) {
+
+			if($result->execute()) {
+				return (array) $result->fetchAll();
+			}
+		}
+		return false;
+	}
+
 	public function getRumorById($id)
 	{
 		$sql = "select * from rumors where id=:id";

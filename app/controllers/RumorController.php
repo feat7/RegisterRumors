@@ -60,7 +60,12 @@ class RumorController extends Controller
 		{
 			$rumorsModel = new \app\models\RumorsModel;
 
+			$countModel = new \app\models\CountModel;
+
 			$params['data'] = $rumorsModel->getRumorById($params['id']);
+
+			$params['count_yes'] = $countModel->getCountYesById($params['id']);
+			$params['count_no'] = $countModel->getCountNoById($params['id']);
 
 			$this->middleware('Auth');
 
@@ -73,6 +78,8 @@ class RumorController extends Controller
 
 				$params['userdata'] = $userModel->getUserById((int) $_SESSION['userdata']);
 			}
+
+			// var_dump($params['count_yes']);
 
 			return view('rumor/showrumor.tpl', $params);
 		}

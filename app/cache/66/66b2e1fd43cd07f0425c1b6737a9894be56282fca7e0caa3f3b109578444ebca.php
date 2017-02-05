@@ -50,7 +50,7 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-xs-12\">
 \t\t\t\t\t<div class=\"text-center\" style=\"padding-top: 90px;\">
-                        <a href=\"/rumour-registration\" style=\"text-decoration:none; color:white;\">
+                        <a href=\"#register-rumor\" style=\"text-decoration:none; color:white;\">
                         <i class=\"glyphicon glyphicon-fire\" style=\"font-size: 190px; color: #fb7304;\"></a></i>
                         <h2 class=\"header-heading\"><a href=\"#register-rumor\" style=\"text-decoration:none;color:white;\">Register A Rumour</a></h2>
 \t\t\t\t\t\t<h2><small>Save valuable lives.</small></h2>
@@ -63,6 +63,58 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
 \t\t\t</div>
 \t\t</div>
 \t</header>
+
+\t<section id=\"result-holder\">
+\t<h2>Recently registered Rumors</h2><hr/>
+\t\t";
+        // line 51
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["rumors"]) ? $context["rumors"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["rumor"]) {
+            // line 52
+            echo "\t\t\t<br>
+<div class=\"container\">
+\t<div class=\"row\">
+\t\t<div class=\"col-md-6 col-md-offset-3\">
+            <div class=\"panel panel-primary\">
+                <div class=\"panel-heading\">
+                    <h3 class=\"panel-title\">";
+            // line 58
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "subject", array()), "html", null, true);
+            echo "</h3>
+                
+                </div>
+                <div class=\"panel-body\">
+                    ";
+            // line 62
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "message", array()), "html", null, true);
+            echo "<br/>
+                    Pin Code: ";
+            // line 63
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "zipcode", array()), "html", null, true);
+            echo "<br/>
+                    Count Yes: ";
+            // line 64
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "count_yes", array()), "html", null, true);
+            echo "<br/>
+                    Count No: ";
+            // line 65
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "count_no", array()), "html", null, true);
+            echo "
+                </div>
+
+                
+            </div>
+        </div>
+\t</div>
+</div>
+\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rumor'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 74
+        echo "\t</section>
 
 \t<section id=\"register-rumor\">
 \t<hr/>
@@ -164,9 +216,14 @@ class __TwigTemplate_24033b0e1ebbef2c5ae0b152532005f8dddbe42f3284a1906d75c85f78a
         return "homepage/index.tpl";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  19 => 1,);
+        return array (  117 => 74,  102 => 65,  98 => 64,  94 => 63,  90 => 62,  83 => 58,  75 => 52,  71 => 51,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
