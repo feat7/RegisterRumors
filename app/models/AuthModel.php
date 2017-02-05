@@ -12,7 +12,7 @@ class AuthModel extends Model
 {
 	public function insertRegistrationData($data)
 	{
-		$sql = "insert into users (name, mobile, email, password) values (:name, :mobile, :email, :password)";
+		$sql = "insert into users (name, reg_id, zipcode, email, password) values (:name, :reg_id, :zipcode, :email, :password)";
 		if($insert = $this->pdoQuery($sql)) {
 			if($insert->execute($data)) {
 				return true;
@@ -38,7 +38,7 @@ class AuthModel extends Model
 		if($result = $this->pdoQuery($sql)) {
 			$result->bindParam('email', $email);
 			if($result->execute()) {
-				$_SESSION['userdata'] = $result->fetch(\PDO::FETCH_OBJ);
+				$_SESSION['userdata'] = $result->fetch(\PDO::FETCH_OBJ)->user_id;
 			}
 		}
 	}

@@ -14,4 +14,9 @@ class HomePageController extends Controller
 	{
 		return view('homepage/index.tpl');
 	}
+
+	public function rumorForm()
+	{
+		return view('homepage/rumor_register_new.tpl');
+	}
 }

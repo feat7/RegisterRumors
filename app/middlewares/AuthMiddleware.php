@@ -10,18 +10,11 @@ use \system\middlewares\Middleware;
 */
 class AuthMiddleware extends Middleware
 {
-	public function checkUser()
+	public function check()
 	{
 		
-		if(isset($_SESSION['userdata']->user_id) && isset($_SESSION['userdata']->password)) {
-			$authModel = new \app\models\AuthModel;
-			$hash = $authModel->getHashById(intval($_SESSION['userdata']->user_id));
-			
-			if($_SESSION['userdata']->password == $hash) {
-			
-				return true;
-				// header('Location: /dashboard');
-			}
+		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']=='true') {
+			return true;
 
 		} else {
 			

@@ -9,13 +9,20 @@ class Routes
 	{
 		$this->routes = [
 			'/' => ['uses' => 'HomePageController@index'],
-			'register' => ['uses' => 'Auth@register'],
-			'login' => ['uses' => 'Auth@login'],
-			'logout' => ['uses' => 'Auth@logout'],
-			'dashboard' => ['uses' => 'Dashboard@home', 'params' => ['page' => $this->getUriSegment(1)] ],
-			'ajax' => ['uses' => 'Ajax@request', 'params' => ['element' => $this->getUriSegment(1)]],
-			'dashboard-api' => ['uses' => 'DashboardAPI@requestAPI', 'params' => ['api' => $this->getUriSegment(1)] ],
+			'register' => ['uses' => 'AuthController@register'],
+			'login' => ['uses' => 'AuthController@login'],
+			'logout' => ['uses' => 'AuthController@logout'],
+			'dashboard' => ['uses' => 'DashboardController@home' ],
+			'ajax' => ['uses' => 'Api\AjaxApiController@request', 'params' => ['request' => $this->getUriSegment(1)]],
+			'auth-requests' => ['uses' => 'Api\AuthApiController@request', 'params' => ['request' => $this->getUriSegment(1) ] ],
 			'debug' => ['uses' => 'Ajax@debug'],
+
+			//Rumor Registration
+
+			'rumour-registration' => ['uses' => 'HomePageController@rumorForm'],
+			'register-rumor' => ['uses' => 'RumorController@register'],
+			'rumor' => ['uses' => 'RumorController@showRumor', 'params' => ['id' => $this->getUriSegment(1)]],
+			'count' => ['uses' => 'Api\AjaxApiController@count', 'params' => ['id' => $this->getUriSegment(1)] ],
 
 		];
 

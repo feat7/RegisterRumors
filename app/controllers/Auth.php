@@ -73,7 +73,7 @@ class Auth extends Controller
 
 	public function login()
 	{
-		if($this->AuthMiddleware->checkUser()) {
+		if($this->AuthMiddleware->check()) {
 			header('Location: /dashboard');
 		}
 
