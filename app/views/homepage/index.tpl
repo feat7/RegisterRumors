@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="text-center" style="padding-top: 90px;">
-                        <a href="/rumour-registration" style="text-decoration:none; color:white;">
+                        <a href="#register-rumor" style="text-decoration:none; color:white;">
                         <i class="glyphicon glyphicon-fire" style="font-size: 190px; color: #fb7304;"></a></i>
                         <h2 class="header-heading"><a href="#register-rumor" style="text-decoration:none;color:white;">Register A Rumour</a></h2>
 						<h2><small>Save valuable lives.</small></h2>

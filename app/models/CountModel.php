@@ -35,6 +35,21 @@ class CountModel extends Model
 		return false;
 	}
 
+	public function getCountNoById($id)
+	{
+		$sql = "select count(*) from rumors where submission=1 AND id=:id";
+
+		if($result = $this->pdoQuery($sql)) {
+			$result->bindParam(':id', $id);
+
+			if($result->execute()) {
+				return $result->fetch();
+			}
+		}
+		return false;
+	}
+
+
 	public function getRumorsByZip($zipcode)
 	{
 		$sql = "select * from rumors where zipcode=:zipcode";

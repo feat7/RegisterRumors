@@ -19,13 +19,15 @@
                 
                 </div>
                 <div class="panel-body">
-                    {{data.message}}
+                    {{data.message}}<br/>
+                    Address: {{rumordata.state}}<br/>
+                    Pin Code: {{rumordata.zipcode}}
                 </div>
 
                 {% if data.zipcode==userdata.zipcode %}
                 	<div class="panel-bottom">
-                		<button class="btn btn-success">Correct</button>
-                		<button class="btn btn-danger">Incorrect</button>
+                		<a href="/rumor-add-yes-count" class="btn btn-success">Correct</button>
+                		<a href="/rumor-add-no-count" class="btn btn-danger">Incorrect</button>
                 	</div>
                 {% endif %}
             </div>

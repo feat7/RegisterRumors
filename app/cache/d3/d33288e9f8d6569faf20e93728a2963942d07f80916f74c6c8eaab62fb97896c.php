@@ -40,26 +40,34 @@ class __TwigTemplate_324db615d2bec2f528e3d199d5fa6d2b6e01440d2e9477ff607634dc866
         // line 18
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "subject", array()), "html", null, true);
         echo "</h3>
-                    
+                
                 </div>
                 <div class=\"panel-body\">
                     ";
         // line 22
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "message", array()), "html", null, true);
+        echo "<br/>
+                    Address: ";
+        // line 23
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["rumordata"]) ? $context["rumordata"] : null), "state", array()), "html", null, true);
+        echo "<br/>
+                    Pin Code: ";
+        // line 24
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["rumordata"]) ? $context["rumordata"] : null), "zipcode", array()), "html", null, true);
         echo "
                 </div>
 
                 ";
-        // line 25
+        // line 27
         if (($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "zipcode", array()) == $this->getAttribute((isset($context["userdata"]) ? $context["userdata"] : null), "zipcode", array()))) {
-            // line 26
+            // line 28
             echo "                \t<div class=\"panel-bottom\">
                 \t\t<button class=\"btn btn-success\">Correct</button>
                 \t\t<button class=\"btn btn-danger\">Incorrect</button>
                 \t</div>
                 ";
         }
-        // line 31
+        // line 33
         echo "            </div>
         </div>
 \t</div>
@@ -80,7 +88,7 @@ class __TwigTemplate_324db615d2bec2f528e3d199d5fa6d2b6e01440d2e9477ff607634dc866
 
     public function getDebugInfo()
     {
-        return array (  63 => 31,  56 => 26,  54 => 25,  48 => 22,  41 => 18,  24 => 4,  19 => 1,);
+        return array (  71 => 33,  64 => 28,  62 => 27,  56 => 24,  52 => 23,  48 => 22,  41 => 18,  24 => 4,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */

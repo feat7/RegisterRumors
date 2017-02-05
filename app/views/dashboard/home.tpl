@@ -110,14 +110,15 @@
                     
                 </div>
                 <div class="panel-body">
-                
+
                     {{rumor.message}}
                 </div>
 
                 
                   <div class="panel-bottom">
-                    <button class="btn btn-success">Correct</button>
-                    <button class="btn btn-danger">Incorrect</button>
+                    <a href="/rumor-add-yes-count/{{rumor.id}}" class="btn btn-success">Correct</a>
+                    <a href="/rumor-add-no-count/{{rumor.id}}" class="btn btn-danger">Incorrect</a>
+                    <a class="btn btn-info" href="/rumor/{{rumor.id}}">Details</a>
                   </div>
                
             </div>

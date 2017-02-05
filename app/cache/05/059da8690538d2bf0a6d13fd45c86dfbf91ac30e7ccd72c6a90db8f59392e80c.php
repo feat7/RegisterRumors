@@ -139,7 +139,7 @@ class __TwigTemplate_08a03fefcf74660acada6c11241e713b8ce32eebd5c4ca72639f87de6c2
                     
                 </div>
                 <div class=\"panel-body\">
-                
+
                     ";
             // line 114
             echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "message", array()), "html", null, true);
@@ -148,8 +148,18 @@ class __TwigTemplate_08a03fefcf74660acada6c11241e713b8ce32eebd5c4ca72639f87de6c2
 
                 
                   <div class=\"panel-bottom\">
-                    <button class=\"btn btn-success\">Correct</button>
-                    <button class=\"btn btn-danger\">Incorrect</button>
+                    <a href=\"/rumor-add-yes-count/";
+            // line 119
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "id", array()), "html", null, true);
+            echo "\" class=\"btn btn-success\">Correct</a>
+                    <a href=\"/rumor-add-no-count/";
+            // line 120
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "id", array()), "html", null, true);
+            echo "\" class=\"btn btn-danger\">Incorrect</a>
+                    <a class=\"btn btn-info\" href=\"/rumor/";
+            // line 121
+            echo twig_escape_filter($this->env, $this->getAttribute($context["rumor"], "id", array()), "html", null, true);
+            echo "\">Details</a>
                   </div>
                
             </div>
@@ -162,7 +172,7 @@ class __TwigTemplate_08a03fefcf74660acada6c11241e713b8ce32eebd5c4ca72639f87de6c2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rumor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 129
+        // line 130
         echo "          </section></section></section>
      <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
@@ -262,7 +272,7 @@ class __TwigTemplate_08a03fefcf74660acada6c11241e713b8ce32eebd5c4ca72639f87de6c2
 
     public function getDebugInfo()
     {
-        return array (  166 => 129,  145 => 114,  137 => 109,  128 => 102,  124 => 101,  81 => 61,  19 => 1,);
+        return array (  176 => 130,  161 => 121,  157 => 120,  153 => 119,  145 => 114,  137 => 109,  128 => 102,  124 => 101,  81 => 61,  19 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */

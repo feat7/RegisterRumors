@@ -23,6 +23,8 @@ class Routes
 			'register-rumor' => ['uses' => 'RumorController@register'],
 			'rumor' => ['uses' => 'RumorController@showRumor', 'params' => ['id' => $this->getUriSegment(1)]],
 			'count' => ['uses' => 'Api\AjaxApiController@count', 'params' => ['id' => $this->getUriSegment(1)] ],
+			'rumor-add-yes-count' => ['uses' => 'RumorController@addYesCount', 'params' => ['id' => $this->getUriSegment(1)]],
+			'rumor-add-no-count' => ['uses' => 'RumorController@addNoCount', 'params' => ['id' => $this->getUriSegment(1)]],
 
 		];
 

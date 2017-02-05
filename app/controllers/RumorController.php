@@ -66,6 +66,8 @@ class RumorController extends Controller
 
 			$params['loggedin'] = $this->AuthMiddleware->check();
 
+			$params['rumordata'] = $this->addressDetails($params['data']['zipcode']);
+
 			if($params['loggedin']) {
 				$userModel = new \app\models\UserModel;
 
@@ -73,6 +75,59 @@ class RumorController extends Controller
 			}
 
 			return view('rumor/showrumor.tpl', $params);
+		}
+
+		public function addressDetails($zipcode)
+		{
+			$file = file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?address=$zipcode");
+
+			$file = json_decode($file, true);
+
+			$data['zipcode'] = $zipcode;
+
+			$data['state'] = $file['results'][0]['formatted_address'];
+
+			return $data;
+		}
+
+		public function addYesCount($params)
+		{
+			$this->middleware('Auth');
+
+			$countModel = new \app\models\CountModel;
+
+			if(!$this->AuthMiddleware->check()) {
+				//Do nothing. User Not Authenticated
+			}
+			else {
+				//Add counts
+
+				$data = ['rumor_id' => $params['id'], 'user_id' => (int) $_SESSION['userdata'], 'submission' => 2];
+
+				if($countModel->insertCountData($data)) {
+					echo 'Your Review added successfully!';
+				}
+			}
+		}
+
+		public function addNoCount($params)
+		{
+			$this->middleware('Auth');
+
+			$countModel = new \app\models\CountModel;
+
+			if(!$this->AuthMiddleware->check()) {
+				//Do nothing. User Not Authenticated
+			}
+			else {
+				//Add counts
+
+				$data = ['rumor_id' => $params['id'], 'user_id' => (int) $_SESSION['userdata'], 'submission' => 1];
+
+				if($countModel->insertCountData($data)) {
+					echo 'Your Review added successfully!';
+				}
+			}
 		}
 
 }
